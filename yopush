@@ -4,9 +4,9 @@
 # upload yeoman ./dist directory to host, using basename of parent directory as default dest path
 # cjb 2016-10-25
 
-REMOTEHOST="oqsweb.ndph.ox.ac.uk"
-REMOTEUSER="cp"
-REMOTEROOT="/user/cp/public_html/bbquiz/"  # http://red.ctsu.ox.ac.uk/~cp/cjb/
+REMOTEHOST=""
+REMOTEUSER=""
+REMOTEROOT=""
 REMOTEDIR="$(basename "$(dirname "$(pwd)")")"
 
 if [ ! -e app/index.html ]
@@ -18,7 +18,7 @@ fi
 
 if [ -z "$1" ] # if $1 is zero length!
 then
-    read -p "Remote host (oqsweb, red, wf)? [$REMOTEHOST]  " answer;    # -n1 restrict to 1 char -r raw -s silent (password)
+    read -p "Remote host (...)? [$REMOTEHOST]  " answer;    # -n1 restrict to 1 char -r raw -s silent (password)
     # PS3='Remote host? [$REMOTEHOST]'; 
     # select answer in oqsweb red wf; 
     # do 
@@ -30,16 +30,16 @@ else
 fi
 
 case $answer in
-    oqsweb)
-        REMOTEHOST="oqsweb.ndph.ox.ac.uk";;
-    red)
-        REMOTEHOST="red.ctsu.ox.ac.uk"
-        REMOTEROOT="/user/cp/public_html/cjb/bbquiz/";;
-    wf)
-        REMOTEHOST="web456.webfaction.com"
-        REMOTEUSER="drkvogel"
-        REMOTEROOT="/home/drkvogel/webapps/main/bbquiz/"
-        ;;
+    # oqsweb)
+    #     REMOTEHOST="oqsweb.ndph.ox.ac.uk";;
+    # red)
+    #     REMOTEHOST="red.ctsu.ox.ac.uk"
+    #     REMOTEROOT="/user/cp/public_html/cjb/bbquiz/";;
+    # wf)
+    #     REMOTEHOST="web456.webfaction.com"
+    #     REMOTEUSER="drkvogel"
+    #     REMOTEROOT="/home/drkvogel/webapps/main/bbquiz/"
+    #     ;;
     '')
         ;;  # default
     *)  
